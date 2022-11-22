@@ -15,6 +15,10 @@ Metrics/AbcSize:
   Max: 50
 Metrics/ClassLength:
   Max: 150
+Metrics/CyclomaticComplexity:
+  Max: 150
+Metrics/PerceivedComplexity:
+  Max: 150
 Metrics/BlockLength:
   IgnoredMethods: ['describe']
   Max: 400
@@ -29,6 +33,10 @@ Style/EachForSimpleLoop:
 Style/AndOr:
   Enabled: false
 Style/DefWithParentheses:
+  Enabled: false
+Style/GlobalStdStream:
+  Enabled: false
+Style/SpecialGlobalVars:
   Enabled: false
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
@@ -51,6 +59,8 @@ Lint/StructNewOverride:
 Lint/ScriptPermission:
   Enabled: false
 Style/HashEachMethods:
+  Enabled: false
+Style/RedundantFetchBlock:
   Enabled: false
 Style/HashTransformKeys:
   Enabled: false
