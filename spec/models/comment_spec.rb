@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Like, type: :model do
+RSpec.describe Comment, type: :model do
   before(:all) do
     @user = User.create(
       name: 'cosmo',
