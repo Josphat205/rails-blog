@@ -26,14 +26,21 @@
             </div>
           </li>
           <h6 class="px-2 mt-2">Posts</h6>
-        <% @user.posts.each do |post|%>
+        <% @user.fetch_recent_posts.each do |post|%>
         <li class="list-group-item ">
-          <div class="d-flex justify-content-between">
+          <div class="">
+           <div class="d-flex justify-content-between">
             <div class="post-container">
-                <h6 class="mb-1"><b>Title: </b><%=post.title%></h6>
-                <p>Comment: <%=post.text%></p>
-            </div>
-          <small>comments: </b><%=post.comments_counter%></b> </small>
+              <h6 class="mb-1"><b>Title: </b><%=post.title%></h6>
+              <p>content: <%=post.text%></p>
+          </div>
+        <small>comments: </b><%=post.comments_counter%></b> </small>
+           </div>
+          <div class="comments">
+            <% post.fetch_recent_comments.each do |comment|%>
+            <p>Comment: <%=comment.text%></p>
+            <%end%>
+          </div>
           </div>
           <div class="">
             <%= link_to 'Read more', user_post_path(@user, post.id), class: 'btn-sm btn btn-primary' %>
