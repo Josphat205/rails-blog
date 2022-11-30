@@ -31,7 +31,7 @@
     <section class="py-1 container">
       <h6>Posts:</h6>
       <div class="post">
-        <% @user.posts.each do |post| %>
+        <% @user.fetch_recent_posts.each do |post| %>
         <div class="d-flex justify-content-between bg-light p-1 rounded mb-1">
           <div class="post-body">
             <h6><b><%= post.id%>.</b> <%= post.title%></h6>
