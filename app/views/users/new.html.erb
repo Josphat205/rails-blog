@@ -1,0 +1,11 @@
+<section class="py-2  container">
+    <div class=" w-75 mx-auto" style="">
+        <h5 class="fw-dark">Add User</h5>
+        <%= form_with model: @user do |form| %>
+        <%= form.text_field :name , class: 'form-control mb-2' %>
+        <%= form.text_field :photo , class: 'form-control mb-2' %>
+        <%= form.text_field :bio , class: 'form-control mb-2' %>
+        <%= form.submit 'Submit' ,class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </section>

@@ -1,1 +1,43 @@
-<p>Single post goes here</p>
+<div class="container">
+    <div class="card mb-3">
+      <div class="card-title d-flex justify-content-between p-2">
+        <h6 class="">Post:<%= @post.id %></h6>
+        <p class="mx-4" style="position: relative">
+          Comments:
+          <span
+            style="
+              position: absolute;
+              width: 20px;
+              height: 20px;
+              border-radius: 50%;
+              background: blue;
+              color: white;
+              font-size: 12px;
+              text-align: center;
+            "
+            class=""
+            ><%= @post.comments_counter %></span
+          >
+        </p>
+      </div>
+      <div class="card-body">
+        <p class="card-text">post: <%= @post.text %></p>
+        <%= link_to 'Delete', user_post_path(@post.id), method: :delete, class: 'btn-sm btn btn-danger' %>
+        <%= link_to 'Back', user_posts_path, class: 'btn-sm btn btn-default' %>
+      </div>
+      <section class="py-1 container">
+        <h6>Comments:</h6>
+        <div class="post">
+          <% @post.comments.each do |comment| %>
+          <div class="d-flex justify-content-between bg-light p-1 rounded mb-1">
+            <div class="post-body">
+              <h6><b><%= comment.id%>.</b> <%= comment.text%></h6>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </section>
+    </div>
+  </div>
+  
+

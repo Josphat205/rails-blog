@@ -1,1 +1,66 @@
-<p>Sigle user goes here</p>
+<div class="container">
+  <div class="card mb-3">
+    <div class="card-title d-flex justify-content-between p-2">
+      <h6 class="">Username: <%= @user.name %></h6>
+      <p class="mx-4" style="position: relative">
+        Posts:
+        <span
+          style="
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: blue;
+            color: white;
+            font-size: 12px;
+            text-align: center;
+          "
+          class=""
+          ><%= @user.posts_counter %></span
+        >
+      </p>
+    </div>
+    <div class="card-body">
+      <p class="card-text">Bio: <%= @user.bio %></p>
+      <div class="links">
+        <%= link_to 'Posts', user_posts_path(@user), class: 'btn-sm btn
+        btn-info' %> <%= link_to 'Back', root_path(@user), class: 'btn-sm btn
+        btn-default' %>
+      </div>
+    </div>
+    <section class="py-1 container">
+      <h6>Posts:</h6>
+      <div class="post">
+        <% @user.fetch_recent_posts.each do |post| %>
+        <div class="d-flex justify-content-between bg-light p-1 rounded mb-1">
+          <div class="post-body">
+            <h6><b><%= post.id%>.</b> <%= post.title%></h6>
+            <p>comment: <%= post.text%></p>
+          </div>
+          <p class="mx-4" style="position: relative">
+            Comments:
+            <span
+              style="
+                position: absolute;
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                background: black;
+                color: white;
+                font-size: 10px;
+                text-align: center;
+              "
+              ><%= post.comments_counter%></span
+            >
+          </p>
+        </div>
+        <% end %>
+      </div>
+    </section>
+    <div class="card-footer">
+      <p class="card-text">
+        <small class="text-muted"><%= @user.created_at.to_fs(:short) %></small>
+      </p>
+    </div>
+  </div>
+</div>
