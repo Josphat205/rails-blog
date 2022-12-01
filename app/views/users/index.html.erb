@@ -5,7 +5,7 @@
       <li class="list-group-item ">
         <div class="d-flex justify-content-between">
           <div class="h5"><b>Name: </b><%=user.name%></div>
-        <small>Posts: </b><%=user.posts_counter%></b> </small>
+        <small>Posts: </b><%=user.posts_counter || 0 %></b> </small>
         </div>
         <div class="">
           <%= link_to 'show user', user_path(user), class: 'btn-sm btn btn-primary' %>
