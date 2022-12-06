@@ -7,7 +7,7 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item ">
             <div class="d-flex justify-content-between">
-              <div class="h5"><b>Name: </b><%=@user.name%></div>
+              <div class="h5"><b>Name: </b><%=@user.name%> <b>Photo: </b><%= image_tag @user.photo, :alt => 'product_image' %></div>
               <p class="mx-4" style="position: relative">
                 Posts:
                 <span
@@ -28,7 +28,7 @@
             </div>
           </li>
           <h6 class="px-2 mt-2">Posts</h6>
-        <% @user.fetch_recent_posts.each do |post|%>
+        <% @user.posts.includes([:author]).each do |post|%>
         <li class="list-group-item ">
           <div class="">
            <div class="d-flex justify-content-between">
@@ -36,7 +36,10 @@
               <h6 class="mb-1"><b>Title: </b><%=post.title%></h6>
               <p>content: <%=post.text%></p>
           </div>
-        <small>comments: </b><%=post.comments_counter%></b> </small>
+           <div class="counter">
+            <small>comments: </b><%=post.comments_counter%></b> </small>
+            <small>likes: </b><%=post.likes_counter%></b> </small>
+           </div>
            </div>
           <div class="comments">
             <% post.fetch_recent_comments.each do |comment|%>

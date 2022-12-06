@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   has_many :comments
   has_many :likes
-  belongs_to :author, class_name: 'User'
+  belongs_to :author, class_name: 'User', foreign_key: 'author_id'
   validates :title, :text, presence: true
   after_save :update_posts_counter
 
@@ -14,6 +14,6 @@ class Post < ApplicationRecord
   end
 
   def fetch_recent_comments
-    comments.order('created_at DESC').last(5)
+    comments.includes([:author]).last(5)
   end
 end
