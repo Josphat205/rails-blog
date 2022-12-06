@@ -4,15 +4,15 @@ RSpec.describe 'User', type: :feature do
   before(:each) do
     visit(user_path(User.first.id))
     @user = User.create(
-            name: 'Kiploman',
-            bio: 'Graphic designer',
-            photo: 'http://hello.com/org.png',
-            posts_counter: 0
-          )
+      name: 'Kiploman',
+      bio: 'Graphic designer',
+      photo: 'http://hello.com/org.png',
+      posts_counter: 0
+    )
   end
   it "has users's profile picture." do
     visit user_path(@user.id)
-     expect(page).to have_xpath("//img[contains(@src,'http://hello.com/org.png')]")
+    expect(page).to have_xpath("//img[contains(@src,'http://hello.com/org.png')]")
   end
   it "has users's username." do
     expect(page).to have_content(user.name)
