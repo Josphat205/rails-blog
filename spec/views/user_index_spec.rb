@@ -28,7 +28,7 @@ RSpec.describe 'Index page', type: :feature do
     it 'should redirect to users show page' do
       visit users_path(@user.id)
       click_on 'show user', match: :first
-      expect(page).to have_current_path user_path(@user.id)
+      expect(page).to have_current_path user_path(1)
     end
   end
 end
