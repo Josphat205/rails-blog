@@ -1,7 +1,9 @@
 <div class="container">
   <div class="card mb-3">
     <div class="card-title d-flex justify-content-between p-2">
-      <h6 class="">Username: <%= @user.name %></h6>
+      <h6 class="">Username: <%= @user.name %> 
+        <b>Photo</b><%= image_tag @user.photo, :alt => 'image' %>
+      </h6>
       <p class="mx-4" style="position: relative">
         Posts:
         <span
@@ -32,8 +34,8 @@
 
       <h6>Posts:</h6>
       <div class="post">
-        <% @user.fetch_recent_posts.each do |post| %>
-        <div class="d-flex justify-content-between bg-light p-1 rounded mb-1">
+        <% @user.posts.includes([:author]).each do |post| %>
+        <sec  class="d-flex justify-content-between bg-light p-1 rounded mb-1 post-card">
           <div class="post-body">
             <h6><b><%= post.id%>.</b> <%= post.title%></h6>
             <p>comment: <%= post.text%></p>
@@ -54,7 +56,7 @@
               ><%= post.comments_counter%></span
             >
           </p>
-        </div>
+        </sec>
         <% end %>
       </div>
     </section>

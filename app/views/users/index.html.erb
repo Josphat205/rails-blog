@@ -4,7 +4,10 @@
       <% @users.each do |user|%>
       <li class="list-group-item ">
         <div class="d-flex justify-content-between">
-          <div class="h5"><b>Name: </b><%=user.name%></div>
+          <div class="h5">
+            <b>Photo</b><%= image_tag user.photo, :alt => 'image' %>
+            <b>Name: </b><%=user.name%> 
+          </div>
         <small>Posts: </b><%=user.posts_counter || 0 %></b> </small>
         </div>
         <div class="">

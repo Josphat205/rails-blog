@@ -8,7 +8,7 @@ RSpec.describe 'Posts', type: %w[request feature] do
     end
 
     it 'renders index template with right text' do
-      visit '/users/1/posts/'
+      get "/users/#{@user.id}/posts"
       expect(page).to have_text('All Posts goes here')
     end
 
