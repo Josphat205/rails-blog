@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Post', type: :feature do
   describe 'index page' do
     before(:each) do
-      @user = User.create(name: 'Tom', bio: 'Software Developer', photo: "http://hello.com/org.png", posts_counter: 0)
+      @user = User.create(name: 'Tom', bio: 'Software Developer', photo: 'http://hello.com/org.png', posts_counter: 0)
       @post = Post.create(title: 'one post', text: 'first post', author_id: @user.id, comments_counter: 0,
                           likes_counter: 0)
       @post_one = Post.create(title: 'two post', text: 'second post', author_id: @user.id, comments_counter: 2,
@@ -18,7 +18,7 @@ RSpec.describe 'Post', type: :feature do
       Like.create(post_id: @post_two.id, author_id: @user.id)
     end
     it "I can see the user's username." do
-      visit user_posts_path(@user.id,@post.id)
+      visit user_posts_path(@user.id, @post.id)
       expect(page).to have_content('Tom')
     end
 
@@ -56,7 +56,6 @@ RSpec.describe 'Post', type: :feature do
       expect(page).to have_content('welcome to the city')
       expect(page).to have_content('This movie is good')
     end
-
 
     it 'redirects to all user posts page' do
       visit user_posts_path(@user.id)

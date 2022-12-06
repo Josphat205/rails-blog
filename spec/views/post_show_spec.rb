@@ -25,7 +25,7 @@ RSpec.describe 'Post', type: :feature do
 
     it "I can see the post's title." do
       visit user_post_path(@user.id, @post.id)
-      expect(page).to have_content("the post")
+      expect(page).to have_content('the post')
     end
 
     it 'I can see the post body.' do
