@@ -1,11 +1,13 @@
+
 <div class="container">
   <div class="card" style="width: 100%">
     <ul class="list-group list-group-flush">
+      <% if user_signed_in? %>
       <% @users.each do |user|%>
       <li class="list-group-item ">
         <div class="d-flex justify-content-between">
           <div class="h5">
-            <b>Photo</b><%= image_tag user.photo, :alt => 'image' %>
+            <%= image_tag user.photo, :alt => 'image', class:'w-25' %>
             <b>Name: </b><%=user.name%> 
           </div>
         <small>Posts: </b><%=user.posts_counter || 0 %></b> </small>
@@ -14,6 +16,7 @@
           <%= link_to 'show user', user_path(user), class: 'btn-sm btn btn-primary' %>
          </div>
       </li>
+      <%end%>
       <%end%>
     </ul>
     <div class="card-footer">

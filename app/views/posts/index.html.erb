@@ -7,7 +7,7 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item ">
             <div class="d-flex justify-content-between">
-              <div class="h5"><b>Name: </b><%=@user.name%> <b>Photo: </b><%= image_tag @user.photo, :alt => 'product_image' %></div>
+              <div class="h5"><b>Name: </b><%=@user.name%><%= image_tag @user.photo, :alt => 'product_image', class: 'w-25' %></div>
               <p class="mx-4" style="position: relative">
                 Posts:
                 <span

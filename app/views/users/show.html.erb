@@ -2,7 +2,7 @@
   <div class="card mb-3">
     <div class="card-title d-flex justify-content-between p-2">
       <h6 class="">Username: <%= @user.name %> 
-        <b>Photo</b><%= image_tag @user.photo, :alt => 'image' %>
+        <%= image_tag @user.photo, :alt => 'image',class: 'w-25' %>
       </h6>
       <p class="mx-4" style="position: relative">
         Posts:
