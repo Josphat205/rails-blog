@@ -36,6 +36,8 @@ Style/DefWithParentheses:
   Enabled: false
 Style/GlobalStdStream:
   Enabled: false
+Style/RedundantConstantBase:
+  Enabled: false
 Style/SpecialGlobalVars:
   Enabled: false
 Style/FrozenStringLiteralComment:
