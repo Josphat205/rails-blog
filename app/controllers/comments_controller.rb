@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @comment = current_user.comments.new(post_id: @post.id, author_id: current_user.id, text: comment_params)
+    @comment = @post.comments.new(post_id: @post.id, author_id: current_user.id, text: comment_params)
     @comment.post_id = @post.id
     if @comment.save
       flash[:success] = 'Comment saved successfully'
@@ -19,6 +19,19 @@ class CommentsController < ApplicationController
       newcomment = Comment.new
       flash.now[:error] = 'Error: comment could not be saved'
       render :new, locals: { newcomment: }
+    end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @post = Post.where(id: @comment.post_id).first
+    @comment.destroy
+    @post.decrement!(:comments_counter)
+    respond_to do |format|
+      format.html do
+        flash[:success] = 'Comment deleted successfully'
+        redirect_to user_post_path(current_user, @post.id)
+      end
     end
   end
 

@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts.includes(:comments)
@@ -31,6 +32,19 @@ class PostsController < ApplicationController
           flash.now[:error] = 'Error: post could not be saved'
           render :new, locals: { newpost: }
         end
+      end
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @post = @user.posts.find(params[:id])
+    @post.destroy
+    @user.decrement!(:posts_counter)
+    respond_to do |format|
+      format.html do
+        flash[:success] = 'Post deleted successfully'
+        redirect_to user_posts_path
       end
     end
   end
