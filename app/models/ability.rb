@@ -2,12 +2,13 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    if user.role === 'user'
+    case user.role
+    when 'user'
       can %i[read create], Post
       can %i[update destroy], Post, author_id: user.id
       can %i[read create], Comment
       can %i[update destroy], Comment, author_id: user.id
-    elsif user.role === 'admin'
+    when 'admin'
       can :manage, :all
     else
       can :read, Post
