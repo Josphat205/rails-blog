@@ -32,6 +32,8 @@ Style/EachForSimpleLoop:
   Enabled: false
 Style/AndOr:
   Enabled: false
+Style/CaseEquality:
+  Enabled: false
 Style/DefWithParentheses:
   Enabled: false
 Style/GlobalStdStream:
