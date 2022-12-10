@@ -1,5 +1,5 @@
 class Api::V1::CommentsController < ApplicationController
-   before_action :authorize_request
+  before_action :authorize_request
   before_action :find_user_post
 
   def new
