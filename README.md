@@ -140,6 +140,12 @@ Example: heroku
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/josphatloman/)
 - Twitter: [@twitterhandle](https://twitter.com/josphatloman)
 
+👤 **Kehinde Ridwan Onifade**
+
+- GitHub: [@Josphat205](https://github.com/kendoriddy) 
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/kehindeonifade/)
+- Twitter: [@twitterhandle](https://twitter.com/RideOnOne09)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
